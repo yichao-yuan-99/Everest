@@ -1,0 +1,9 @@
+cudaDeviceProp deviceProp;
+cudaGetDeviceProperties(&deviceProp, gpu_);
+
+int maxBlocksPerSM;
+cudaOccupancyMaxActiveBlocksPerMultiprocessor(&maxBlocksPerSM, MotifMatching_dispatch, sizeBlock_, 0);
+auto numBlocksA = maxBlocksPerSM * deviceProp.multiProcessorCount;
+
+cudaOccupancyMaxActiveBlocksPerMultiprocessor(&maxBlocksPerSM, MotifMatching_Expand, sizeBlock_, 0);
+auto numBlocksB = maxBlocksPerSM * deviceProp.multiProcessorCount;

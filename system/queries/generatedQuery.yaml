@@ -1,0 +1,9 @@
+constraints:
+  delta: 86400
+graph: /home/yichaoy/old/tmofit-light/data/target-graphs/wiki-talk-temporal.txt
+options:
+  gpu: 1
+  tailExpansion: false
+  warpBalancing: false
+  warpCentric: true
+pattern: /home/yichaoy/old/tmofit-light/data/4p-vertices/M2.txt

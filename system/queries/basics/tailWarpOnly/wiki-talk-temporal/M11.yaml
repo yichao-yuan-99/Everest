@@ -1,0 +1,9 @@
+constraints:
+  delta: 86400
+graph: wiki-talk-temporal.txt
+options:
+  gpu: 1
+  tailExpansion: true
+  warpBalancing: false
+  warpCentric: true
+pattern: M11.txt

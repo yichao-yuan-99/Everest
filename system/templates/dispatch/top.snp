@@ -1,0 +1,22 @@
+__global__ static void MotifMatching_dispatch( 
+  // @@@{expandTemplate dispatch/argList.snp}
+  ) {
+  
+  auto laneid = threadIdx.x % 32;
+  // @@@{enableIf $tailExpansion expandTemplate tailExpan/common/firstTid.snp}
+  // @@@{enableIf not $tailExpansion showText auto tid = blockDim.x * blockIdx.x + threadIdx.x;}
+
+  // @@@{expandTemplate common/declareVarForExec.snp}
+
+  // @@@{enableIf $tailExpansion expandTemplate dispatch/tidBeg.snp}
+
+    // @@@{expandTemplate dispatch/processFirstEdge.snp}
+
+    // @@@{expandTemplate common/explorationLoop.snp}
+
+  // @@@{enableIf $tailExpansion expandTemplate warpCentric/tidEnd.snp}
+
+  // @@@{enableIf not $enumerate expandTemplate common/warpReduceOutput.snp}
+
+  // @@@{enableIf $tailExpansion expandTemplate dispatch/ending.snp}
+}

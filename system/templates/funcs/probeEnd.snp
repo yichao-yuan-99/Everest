@@ -1,0 +1,10 @@
+__device__ static void probeEnd(const int *i_S, int beg, int &end, int tl, const TemporalEdge *Eg) {
+  while (beg < end) {
+    int mid = (beg + end) / 2;
+    if (Eg[i_S[mid]].t <= tl) {
+      beg = mid + 1;
+    } else {
+      end = mid;
+    }
+  }
+}

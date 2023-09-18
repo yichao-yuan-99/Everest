@@ -1,0 +1,7 @@
+extern "C" {
+  GPUWorker *getWorker(int gpu);
+}
+
+GPUWorker *getWorker(int gpu) {
+  return new GPUWorkerDYN(gpu);
+}

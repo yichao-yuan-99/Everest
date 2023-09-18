@@ -1,0 +1,9 @@
+struct TContext {
+  // @@@{LevelDepStatesDeclare}
+
+  int tl;
+
+  unsigned char stackio;
+  int level;
+  int beg, end;
+};

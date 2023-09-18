@@ -1,0 +1,22 @@
+if (loopCnt > 20 && __any_sync(0xffffffff, !alive)) { // the dead thread steal work from alive thread
+  int voteAlive = __ballot_sync(0xffffffff, alive);
+  int aliveCount = __popc(voteAlive);
+  int r0e = __funnelshift_lc(voteAlive, voteAlive, 32 - laneid);
+  int l0i = __funnelshift_r(voteAlive, voteAlive, laneid);
+  r0e = __brev(r0e);
+  l0i = __ffs(l0i) - 1;
+  r0e = __ffs(r0e) - 1;
+
+  int src = (laneid + l0i) % 32;
+
+  beg = __shfl_sync(0xffffffff, beg, src);
+  end = __shfl_sync(0xffffffff, end, src);
+  level = __shfl_sync(0xffffffff, level, src);
+  tl = __shfl_sync(0xffffffff, tl, src);
+  stackio = __shfl_sync(0xffffffff, stackio, src);
+
+  // @@@{LevelDepStatesShare}
+
+  // @@@{expandTemplate common/recovermi.snp}
+
+}

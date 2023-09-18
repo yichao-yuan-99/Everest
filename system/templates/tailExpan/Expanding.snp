@@ -1,0 +1,57 @@
+int chunk_offset_h[32];
+int *chunk_offset;
+gpuErrchk(cudaMalloc(&chunk_offset, sizeof(int) * 32));
+gpuErrchk(cudaMemset(chunk_offset, 0, sizeof(int) * 32));
+
+int offload_cnt = 0;
+gpuErrchk(cudaMemcpy(&offload_cnt, offtop, sizeof(int), cudaMemcpyDeviceToHost));
+
+while (offload_cnt > 0) {
+  int t = 0;
+  gpuErrchk(cudaMemcpy(source, &t, sizeof(int), cudaMemcpyHostToDevice));
+  gpuErrchk(cudaMemcpy(yeild, &t, sizeof(int), cudaMemcpyHostToDevice));
+  gpuErrchk(cudaMemcpy(offtopn, &t, sizeof(int), cudaMemcpyHostToDevice));
+  gpuErrchk(cudaMemcpy(offtop, &offload_cnt, sizeof(int), cudaMemcpyHostToDevice));
+  
+
+  // prefix sum
+  thrust::device_ptr<int> dev_ptr(offload_width);
+
+  auto sump = thrust::inclusive_scan(dev_ptr, dev_ptr + offload_cnt, dev_ptr);
+  auto sum = *(sump - 1);
+  for (int i = 0; i < 32; i++) {
+    chunk_offset_h[i] = i * (sum / 32 + (sum % 32 != 0));
+  }
+  gpuErrchk(cudaMemcpy(chunk_offset, &chunk_offset_h, sizeof(int) * 32, cudaMemcpyHostToDevice));
+
+  MotifMatching_Expand <<< numBlocksB, sizeBlock >>> (sum,
+    Eg, numeg,
+    inEdgesV, inEdgesR, outEdgesV, outEdgesR,
+    nodeFeature, edgeFeature,
+
+    minfo, numem,
+
+    yeild,
+    source,
+    offload,
+    offtop,
+    offtopn,
+    offload_width,
+
+    chunk_offset,
+
+    // @@@{enableIf $enumerate showText list_d,}
+    // @@@{enableIf $enumerate showText Euid_d,}
+
+    gcount
+  );
+
+  // @@@{expandTemplate Impl/launchErrchk.snp}
+
+  gpuErrchk(cudaMemcpy(&offload_cnt, offtopn, sizeof(int), cudaMemcpyDeviceToHost));
+}
+
+
+cudaDeviceSynchronize();  
+
+gpuErrchk(cudaFree(chunk_offset));

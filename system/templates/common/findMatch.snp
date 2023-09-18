@@ -1,0 +1,14 @@
+if (level == numem - 2) { 
+  // @@@{enableIf $filter filterBeg}
+  // @@@{enableIf not $enumerate showText count++;}
+  // @@@{enableIf $enumerate enumOut}
+  // @@@{enableIf $filter filterEnd}
+} else {
+  // @@@{PushMapping}
+  // @@@{PushStack}
+  level++; 
+
+  // @@@{enableIf $keepEid StoreIGtoEID}
+
+  // @@@{expandTemplate common/nextLevel.snp}
+}

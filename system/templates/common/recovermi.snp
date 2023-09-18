@@ -1,0 +1,4 @@
+mi = minfo[level];
+mi.io = stackio & 1;
+i_S = mi.io ? outEdgesV : inEdgesV;
+if(mi.constraintNode >= 0) mi.constraintNode = mi.io ? mi.baseNode : mi.constraintNode;

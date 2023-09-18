@@ -1,0 +1,21 @@
+i_g = numeg;
+int node;
+for (; beg < end; beg++) {
+  auto idx = i_S[beg];
+  auto eg = Eg[idx];
+  if (eg.t > tl) {
+    end = beg;
+    break;
+  }
+  node = mi.io ? eg.v : eg.u;
+  bool checked = true;
+  // @@@{expandTemplate common/structuralConstraint.snp}
+
+  // @@@{expandTemplate constraints/edgeConsCallLoop.snp}
+
+  if (checked) {
+      i_g = idx; 
+      beg++;
+      break;
+  }
+}

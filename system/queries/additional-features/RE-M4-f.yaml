@@ -1,0 +1,16 @@
+pattern: M4-A.txt
+graph: temporal-reddit-reply.txt
+constraints:
+  node0: f > 500000000
+  node1: f < 500000000
+  node2: f > 500000000
+  node3: f < 500000000
+  antiEdge: [False, False, True, False, False]
+  temporal: [9000, 18000, 18000, 9000]
+  delta: 36000
+  filter: (e0 + e1 + e2 + e3) > 1000000000
+options:
+  gpu: 1
+  warpCentric: True
+  warpBalancing: True
+  tailExpansion: True

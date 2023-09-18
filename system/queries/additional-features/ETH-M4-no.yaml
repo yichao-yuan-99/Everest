@@ -1,0 +1,9 @@
+pattern: M4.txt
+graph: ethereum.txt
+constraints:
+  delta: 3600
+options:
+  gpu: 1
+  warpCentric: True
+  warpBalancing: True
+  tailExpansion: True

@@ -1,0 +1,6 @@
+pattern: M8.txt
+graph: temporal-reddit-reply.txt
+constraints:
+  delta: 36000
+options:
+  gpu: 4

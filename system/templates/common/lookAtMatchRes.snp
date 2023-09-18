@@ -1,0 +1,21 @@
+bool next = i_g < numeg;
+// @@@{enableIf $antiEdge showText if (antiEdge[level]) next = !next;}
+// @@@{enableIf $antiEdge showText if (next && !bypass) {}
+// @@@{enableIf not $antiEdge showText if (next) {}
+  // @@@{expandTemplate common/findMatch.snp}
+} else { 
+  // @@@{enableIf $antiEdge showText bypass = false;}
+  // @@@{enableIf $antiEdge showText stackio >>= antiEdgeOffset[level];}
+  // @@@{enableIf $antiEdge showText level -= antiEdgeOffset[level];}
+  if (level) {
+    level--;
+    // @@@{PopStack}
+    stackio >>= 1;
+
+    // @@@{enableIf $keepPrevEid keepPrevEid_bt}
+    // @@@{enableIf $fineGrained fineGrained_calcTl}
+
+    // @@@{expandTemplate common/recovermi.snp}
+  } 
+  // @@@{enableIf not $warpCentric expandTemplate common/elseBreak.snp}
+}

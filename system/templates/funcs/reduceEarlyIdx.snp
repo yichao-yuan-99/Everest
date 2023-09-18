@@ -1,0 +1,20 @@
+__device__ static void reduceEarlyIdx(const int *i_S, int &beg, int end, int i_g) {
+  if (end == beg) { beg = end; return;}
+  if (i_S[end - 1] <= i_g) {
+    beg = end;
+    return;
+  } else if (i_S[beg] > i_g) {
+    return;
+  }
+
+  // binary search the first value >= i_g, at this point i_S has at least 2 elements
+  int p = 0;
+  while (beg < end) {
+    p = (beg + end) / 2;
+    if (i_S[p] > i_g) {
+      end = p;
+    } else {
+      beg = p + 1;
+    }
+  }
+}

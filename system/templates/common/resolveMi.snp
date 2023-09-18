@@ -1,0 +1,29 @@
+mi = minfo[level];
+stackio <<= 1;
+if (mi.io >= 0) {
+  // @@@{MappingLookUp mi.baseNode base}
+  beg = mi.arrR[base];
+  end = mi.arrR[base + 1];
+  i_S = mi.arrV;
+} else {
+  int base0, base1;
+  // @@@{MappingLookUp mi.baseNode base0}
+  // @@@{MappingLookUp mi.constraintNode base1}
+  int beg0 = inEdgesR[base0];
+  int end0 = inEdgesR[base0 + 1];
+  int beg1 = outEdgesR[base1];
+  int end1 = outEdgesR[base1 + 1];
+  if (end0 - beg0 < end1 - beg1) {
+    mi.io = 0;
+    beg = beg0;
+    end = end0;
+    i_S = inEdgesV;
+  } else {
+    mi.io = 1;
+    mi.constraintNode = mi.baseNode;
+    beg = beg1;
+    end = end1;
+    i_S = outEdgesV;
+  }
+}
+stackio |= mi.io ? 1 : 0;

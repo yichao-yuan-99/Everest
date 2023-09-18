@@ -1,0 +1,11 @@
+__device__ static int firstLarger(int *arr, int beg, int end, int v) {
+  while (beg < end) {
+    int mid = (beg + end) / 2;
+    if (arr[mid] <= v) {
+      beg = mid + 1;
+    } else {
+      end = mid;
+    }
+  }
+  return end;
+}

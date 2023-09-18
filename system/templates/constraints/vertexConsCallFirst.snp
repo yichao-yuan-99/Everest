@@ -1,0 +1,2 @@
+fcheck = (fcheck && nodeConstraints[0](Eg[tid].u, nodeFeature));
+fcheck = (fcheck && nodeConstraints[1](Eg[tid].v, nodeFeature));

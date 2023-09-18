@@ -1,0 +1,17 @@
+// @@@{enableIf $tailExpansion showText MotifMatching_dispatch <<< numBlocksA, sizeBlock >>>(}
+// @@@{enableIf not $tailExpansion showText MotifMatching_dispatch <<< numBlocks, sizeBlock >>>(}
+  work, delta,
+  Eg, numeg,
+  inEdgesV, inEdgesR, outEdgesV, outEdgesR,
+  nodeFeature, edgeFeature,
+
+  minfo, numem,
+
+  // @@@{enableIf $tailExpansion expandTemplate tailExpan/argPass/Impl2dispatch.snp}
+
+  // @@@{enableIf $enumerate showText list_d,}
+  // @@@{enableIf $enumerate showText Euid_d,}
+
+  gcount
+);
+// @@@{expandTemplate Impl/launchErrchk.snp}

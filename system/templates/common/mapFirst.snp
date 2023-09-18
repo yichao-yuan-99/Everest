@@ -1,0 +1,6 @@
+m0 = Eg[tid].u;
+m1 = Eg[tid].v;
+// @@@{enableIf not $fineGrained showText tl = Eg[tid].t + delta;}
+// @@@{enableIf $fineGrained fineGrained_firstTl}
+// @@@{enableIf $keepEid showText eid0 = tid;}
+i_g = tid;

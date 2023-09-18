@@ -1,0 +1,7 @@
+GPUWorkerDYN::~GPUWorkerDYN() {
+  gpuErrchk(cudaSetDevice(gpu_));
+  gpuErrchk(cudaFree(count_d));
+  // @@@{enableIf $tailExpansion expandTemplate tailExpan/execMemFree.snp}
+
+  // @@@{enableIf $enumerate showText gpuErrchk(cudaFree(list_d));}
+}

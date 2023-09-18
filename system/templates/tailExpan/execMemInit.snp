@@ -1,0 +1,12 @@
+gpuErrchk(cudaMalloc(&yeild_d, sizeof(int)));
+gpuErrchk(cudaMemset(yeild_d, 0, sizeof(int)));
+gpuErrchk(cudaMalloc(&source_d, sizeof(int)));
+gpuErrchk(cudaMemset(source_d, 0, sizeof(int)));
+gpuErrchk(cudaMalloc(&offload_d, 2092 * 96 * sizeof(TContext)));
+gpuErrchk(cudaMemset(offload_d, 0, 2092 * 96 * sizeof(TContext)));
+gpuErrchk(cudaMalloc(&offtop, sizeof(int)));
+gpuErrchk(cudaMalloc(&offtopn, sizeof(int)));
+gpuErrchk(cudaMemset(offtop, 0, sizeof(int)));
+gpuErrchk(cudaMemset(offtopn, 0, sizeof(int)));
+gpuErrchk(cudaMalloc(&offload_width_d, 2092 * 96 * sizeof(int)));
+gpuErrchk(cudaMemset(offload_width_d, 0, 2092 * 96 * sizeof(int)));

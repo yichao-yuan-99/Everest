@@ -1,0 +1,14 @@
+pattern: M4.txt
+graph: ethereum.txt
+constraints:
+  node0: f > 500000000
+  node1: f < 500000000
+  node2: f > 500000000
+  node3: f < 500000000
+  temporal: [900, 1800, 900]
+  delta: 3600
+options:
+  gpu: 1
+  warpCentric: True
+  warpBalancing: True
+  tailExpansion: True

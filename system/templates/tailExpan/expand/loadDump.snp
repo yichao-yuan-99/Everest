@@ -1,0 +1,18 @@
+if (tid < work) {
+  auto loc = firstLarger(offload_width, 0, *offtop, tid);
+  int offset = loc ? tid - offload_width[loc - 1] : tid;
+
+  // load context from loc
+  level = offload[loc].level;
+  tl = offload[loc].tl;
+  stackio = offload[loc].stackio;
+
+  beg = offload[loc].beg + offset;
+  end = min(beg + 1, offload[loc].end);
+
+  // @@@{LevelDepStatesLoad}
+
+  // @@@{expandTemplate common/recovermi.snp}
+} else {
+  end = beg = 0;
+}

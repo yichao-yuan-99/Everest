@@ -1,0 +1,9 @@
+GPUWorkerDYN::GPUWorkerDYN(int gpu, int sizeBlock) : GPUWorker("DYN", gpu, sizeBlock) {
+  gpuErrchk(cudaSetDevice(gpu_));
+  gpuErrchk(cudaMalloc(&count_d, sizeof(unsigned long long)));
+  gpuErrchk(cudaMemset(count_d, 0, sizeof(unsigned long long)));
+
+  // @@@{enableIf $tailExpansion expandTemplate tailExpan/execMemInit.snp}
+
+  // @@@{enableIf $enumerate allocEnum}
+}

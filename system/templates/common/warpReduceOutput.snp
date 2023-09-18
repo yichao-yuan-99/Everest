@@ -1,0 +1,4 @@
+for (int offset = 16; offset > 0; offset /= 2)
+  count += __shfl_down_sync(0xffffffff, count, offset);
+
+if (laneid == 0) atomicAdd(gcount, count);

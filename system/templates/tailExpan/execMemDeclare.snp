@@ -1,0 +1,5 @@
+int *yeild_d;
+int *source_d;
+TContext *offload_d;
+int *offtop, *offtopn;
+int *offload_width_d;

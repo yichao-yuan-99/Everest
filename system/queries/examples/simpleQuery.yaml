@@ -1,0 +1,6 @@
+pattern: M3.txt
+graph: wiki-talk-temporal.txt
+constraints:
+  delta: 86400
+options: 
+  gpu: 1

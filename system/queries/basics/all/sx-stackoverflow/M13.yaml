@@ -1,0 +1,9 @@
+constraints:
+  delta: 86400
+graph: sx-stackoverflow.txt
+options:
+  gpu: 1
+  tailExpansion: true
+  warpBalancing: true
+  warpCentric: true
+pattern: M13.txt

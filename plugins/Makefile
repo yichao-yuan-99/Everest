@@ -1,0 +1,1 @@
+nvcc -O3 -arch=sm_86 -I../include -Xcompiler -fPIC -shared -o plugins/libT.so ../plugins/GPUWorkerU3.cu 

@@ -1,0 +1,24 @@
+__device__ static void dumpContext(
+  // @@@{expandTemplate tailExpan/dump/argListDump.snp}
+) {
+  int width = 0;
+  probeEnd(i_S, beg, end, tl, Eg);
+  width = max(width, end - beg);
+  auto stackiob = stackio;
+  // @@@{shrinkStack}
+
+  if (width == 0) return;
+
+  int offpos = atomicAdd(offtop, 1);
+
+  // each thread 
+  offload[offpos].beg = beg;
+  offload[offpos].end = end;
+  offload[offpos].level = level;
+  offload[offpos].stackio = stackio;
+  offload[offpos].tl = tl;
+
+  offload_width[offpos] = width;
+
+  // @@@{LevelDepStatesDump}
+}

@@ -1,0 +1,9 @@
+void GPUWorkerDYN::take(MineJob &job) {
+  gpuErrchk(cudaSetDevice(gpu_));
+  GPUWorker::take(job);
+
+  // @@@{enableIf $tailExpansion showText gpuErrchk(cudaMemset(yeild_d, 0, sizeof(int)));}
+  // @@@{enableIf $tailExpansion showText gpuErrchk(cudaMemset(offtop, 0, sizeof(int)))};
+  // @@@{enableIf $tailExpansion showText gpuErrchk(cudaMemset(offtopn, 0, sizeof(int)))};
+  // @@@{enableIf $tailExpansion showText gpuErrchk(cudaMemcpy(source_d, &(job_->beg), sizeof(int), cudaMemcpyHostToDevice))};
+}

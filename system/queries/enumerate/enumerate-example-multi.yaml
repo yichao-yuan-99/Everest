@@ -1,0 +1,7 @@
+pattern: M10.txt
+graph: wiki-talk-temporal.txt
+constraints:
+  delta: 86400
+options: 
+  gpu: 4
+  enumerate: 1000000

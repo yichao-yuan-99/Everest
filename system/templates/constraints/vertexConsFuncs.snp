@@ -1,0 +1,18 @@
+__device__ static bool nodeConstraint0(int id, const int *nodeFeature) {
+  auto f = nodeFeature[id];
+  return f > 500000000;
+}
+__device__ static bool nodeConstraint1(int id, const int *nodeFeature) {
+  auto f = nodeFeature[id];
+  return f < 500000000;
+}
+__device__ static bool nodeConstraint2(int id, const int *nodeFeature) {
+  auto f = nodeFeature[id];
+  return f > 500000000;
+}
+__device__ static bool nodeConstraint3(int id, const int *nodeFeature) {
+  auto f = nodeFeature[id];
+  return f < 500000000;
+}
+typedef bool (*NODECONS_FUNC)(int, const int*);
+__device__ NODECONS_FUNC nodeConstraints[] = { nodeConstraint0, nodeConstraint1, nodeConstraint2, nodeConstraint3,};

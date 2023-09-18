@@ -1,0 +1,3 @@
+  if (laneid == 0) tid = atomicAdd(source, 32);
+  tid = __shfl_sync(0xffffffff, tid, 0);
+} // end of outer loop

@@ -1,0 +1,28 @@
+unsigned long long GPUWorkerDYN::run() {
+  gpuErrchk(cudaSetDevice(gpu_));
+  // Get device properties
+  // @@@{enableIf $tailExpansion expandTemplate tailExpan/NumBlocks.snp}
+
+  auto &dd = job_->data;
+
+  count_ = TMotifMatchingGPUImpl(
+      // @@@{enableIf $tailExpansion showText numBlocksA, numBlocksB, sizeBlock_,}
+      // @@@{enableIf not $tailExpansion showText numBlocks(), sizeBlock_,}
+      job_->end, job_->delta,
+
+      dd->Eg_d, dd->graphNumEdges,
+      dd->inEdgesV_d, dd->inEdgesR_d, dd->outEdgesV_d, dd->outEdgesR_d,
+      dd->nodefeatures_d, dd->edgefeatures_d,
+
+      dd->minfo(), dd->motifNumEdges,
+
+      // @@@{enableIf $tailExpansion expandTemplate tailExpan/argPass/Worker2Impl.snp}
+
+      // @@@{enableIf $enumerate showText list_d,}
+      // @@@{enableIf $enumerate showText dd->Euid_d,}
+
+      count_d
+  );
+
+  return count_;
+}

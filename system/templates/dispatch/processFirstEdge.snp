@@ -1,0 +1,13 @@
+bool fcheck = tid < work && (Eg[tid].u != Eg[tid].v);
+
+// @@@{expandTemplate constraints/vertexConsCallFirst.snp}
+// @@@{expandTemplate constraints/edgeConsCallFirst.snp}
+
+if (fcheck) {
+  // @@@{expandTemplate common/mapFirst.snp}
+  // @@@{expandTemplate common/resolveMi.snp}
+
+  reduceEarlyIdx(i_S, beg, end, i_g);
+} else {
+  end = beg;
+}

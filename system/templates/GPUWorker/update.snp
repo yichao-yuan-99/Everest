@@ -1,0 +1,3 @@
+void GPUWorkerDYN::update_job() {
+  job_->beg = job_->end;
+}

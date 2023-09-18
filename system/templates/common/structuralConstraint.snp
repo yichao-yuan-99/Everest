@@ -1,0 +1,6 @@
+if (mi.constraintNode < 0) {
+  // @@@{MappingCheckingNotSame}
+  // @@@{expandTemplate constraints/vertexConsCallLoop.snp}
+} else {
+  // @@@{MappingCheckingSame}
+}

@@ -1,0 +1,15 @@
+// @@@{expandTemplate GPUWorker/declare.snp}
+
+// @@@{expandTemplate GPUWorker/ctor.snp}
+
+// @@@{expandTemplate GPUWorker/dtor.snp}
+
+// @@@{expandTemplate GPUWorker/run.snp}
+
+// @@@{expandTemplate GPUWorker/update.snp}
+
+// @@@{expandTemplate GPUWorker/take.snp}
+
+// @@@{enableIf $enumerate expandTemplate enumerate/func.snp}
+
+// @@@{expandTemplate GPUWorker/interface.snp}

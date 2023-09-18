@@ -1,0 +1,16 @@
+// @@@{enableIf $warpCentric showText int loopCnt = 0;}
+while (true) {
+  // @@@{expandTemplate common/nextMatchInTask.snp}
+
+  // @@@{enableIf $warpCentric showText bool alive = (level || (i_g < numeg));}
+
+  // @@@{expandTemplate common/lookAtMatchRes.snp}
+
+  // @@@{enableIf $tailExpansion expandTemplate tailExpan/timeUp.snp}
+
+  // @@@{enableIf $warpCentric showText if (__any_sync(0xffffffff, alive) == 0) break;}
+
+  // @@@{enableIf $warpBalancing expandTemplate warpBalancing/top.snp}
+
+  // @@@{enableIf $warpCentric expandTemplate common/updateLoopCnt.snp}
+}

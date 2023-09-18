@@ -1,0 +1,10 @@
+if (loopCnt % 1024 == 0 && *yeild) {
+  if (laneid == 0) {
+    timeup = clock() + 100000;
+  } 
+  timeup = __shfl_sync(0xffffffff, timeup, 0);
+}
+
+if (loopCnt % 64 == 0 && timeup && __shfl_sync(0xffffffff, clock(), 0) > timeup) {
+  break;
+}

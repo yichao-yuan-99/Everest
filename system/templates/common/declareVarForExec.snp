@@ -1,0 +1,11 @@
+// @@@{LevelDepStatesDeclare}
+unsigned char stackio = 0;
+int tl;
+// @@@{enableIf not $enumerate showText unsigned long long count = 0;}
+int i_g = tid;
+int level = 0;
+int beg = 0, end = 0, base;
+MotifEdgeInfoV1 mi;
+const int *i_S = nullptr;
+// @@@{enableIf $antiEdge showText bool bypass = false;}
+// @@@{enableIf $tailExpansion showText clock_t timeup = 0;}

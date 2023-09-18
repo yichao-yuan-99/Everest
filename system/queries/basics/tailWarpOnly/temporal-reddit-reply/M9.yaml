@@ -1,0 +1,9 @@
+constraints:
+  delta: 36000
+graph: temporal-reddit-reply.txt
+options:
+  gpu: 1
+  tailExpansion: true
+  warpBalancing: false
+  warpCentric: true
+pattern: M9.txt

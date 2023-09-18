@@ -1,0 +1,10 @@
+static unsigned long long TMotifMatchingGPUImpl( 
+  expandLine // @@@{expandTemplate Impl/argList.snp}
+                          ) {
+  cudaError_t err;
+  // @@@{expandTemplate Impl/launchDispatch.snp}
+
+  // @@@{enableIf $tailExpansion expandTemplate tailExpan/Expanding.snp}
+
+  // @@@{expandTemplate Impl/result.snp}
+}

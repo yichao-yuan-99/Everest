@@ -1,0 +1,2 @@
+if (laneid == 0) loopCnt++;
+loopCnt = __shfl_sync(0xffffffff, loopCnt, 0);

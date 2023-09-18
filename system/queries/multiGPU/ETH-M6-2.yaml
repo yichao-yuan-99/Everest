@@ -1,0 +1,6 @@
+pattern: M6.txt
+graph: ethereum.txt
+constraints:
+  delta: 3600
+options:
+  gpu: 2

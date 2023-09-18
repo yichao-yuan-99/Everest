@@ -1,0 +1,7 @@
+std::vector<int> GPUWorkerDYN::printEnum(int n) {
+  int f = min(n, (int) count()); 
+  auto em = job_->data->motifNumEdges;
+  std::vector<int> vals(f * em);
+  gpuErrchk(cudaMemcpy(&vals[0], list_d, sizeof(int) * vals.size(), cudaMemcpyDeviceToHost));
+  return vals;
+}

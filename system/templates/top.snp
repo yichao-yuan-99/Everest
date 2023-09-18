@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <cuda.h>
+
+// @@@{enableIf $enumerate enumNum}
+
+// @@@{enableIf $tailExpansion showText #include <thrust/device_ptr.h>}
+// @@@{enableIf $tailExpansion showText #include <thrust/scan.h>}
+
+// @@@{enableIf $fineGrained fineGrained_arr}
+// @@@{enableIf $antiEdge antiEdge_arr}
+
+// @@@{includeHeader helpers.cuh}
+// @@@{includeHeader data.h}
+
+using namespace corelib;
+using namespace corelib::data;
+
+// @@@{expandTemplate funcs/reduceEarlyIdx.snp}
+
+// @@@{expandTemplate constraints/edgeConsFuncs.snp}
+// @@@{expandTemplate constraints/vertexConsFuncs.snp}
+
+// @@@{enableIf $tailExpansion expandTemplate tailExpan/TContext.snp}
+
+// @@@{enableIf $tailExpansion expandTemplate funcs/firstLarger.snp}
+
+// @@@{enableIf $tailExpansion expandTemplate funcs/probeEnd.snp}
+
+// @@@{enableIf $tailExpansion expandTemplate tailExpan/dump/func.snp}
+
+// @@@{enableIf $tailExpansion expandTemplate tailExpan/expand/top.snp}
+
+// @@@{expandTemplate dispatch/top.snp}
+
+// --------------------------------- 
+
+// @@@{expandTemplate Impl/top.snp}
+
+// @@@{expandTemplate GPUWorker/top.snp}

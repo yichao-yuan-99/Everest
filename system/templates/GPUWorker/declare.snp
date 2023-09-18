@@ -1,0 +1,15 @@
+struct GPUWorkerDYN : public GPUWorker {
+  // Execution Mem
+  unsigned long long *count_d;
+
+  // @@@{enableIf $tailExpansion expandTemplate tailExpan/execMemDeclare.snp}
+
+  // @@@{enableIf $enumerate showText int *list_d;}
+
+  GPUWorkerDYN(int gpu, int sizeBlock = 96);
+  unsigned long long run() override;
+  virtual void take(MineJob &job) override;
+  void update_job() override;
+  ~GPUWorkerDYN() override;
+  // @@@{enableIf $enumerate showText virtual std::vector<int> printEnum(int n) override;}
+};

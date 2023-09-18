@@ -1,0 +1,6 @@
+gpuErrchk(cudaFree(yeild_d));
+gpuErrchk(cudaFree(source_d));
+gpuErrchk(cudaFree(offload_d));
+gpuErrchk(cudaFree(offtop));
+gpuErrchk(cudaFree(offtopn));
+gpuErrchk(cudaFree(offload_width_d));

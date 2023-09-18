@@ -1,0 +1,6 @@
+err = cudaGetLastError();
+
+if ( err != cudaSuccess ) {
+    printf("CUDA Error: %s\n", cudaGetErrorString(err));       
+    exit(-1);
+}

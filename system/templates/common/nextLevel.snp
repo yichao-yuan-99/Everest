@@ -1,0 +1,6 @@
+// @@@{expandTemplate common/resolveMi.snp}
+
+// @@@{enableIf $keepPrevEid keepPrevEid_next}
+// @@@{enableIf $fineGrained fineGrained_calcTl}
+
+reduceEarlyIdx(i_S, beg, end, i_g);

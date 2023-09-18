@@ -1,0 +1,9 @@
+constraints:
+  delta: 3600
+graph: ethereum.txt
+options:
+  gpu: 1
+  tailExpansion: false
+  warpBalancing: true
+  warpCentric: true
+pattern: M8.txt

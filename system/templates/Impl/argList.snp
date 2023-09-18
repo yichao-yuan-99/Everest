@@ -1,0 +1,18 @@
+// @@@{enableIf not $tailExpansion showText int numBlocks, int sizeBlock,}
+// @@@{enableIf $tailExpansion showText int numBlocksA, int numBlocksB, int sizeBlock,}
+
+int work, int delta,
+// graph
+const TemporalEdge *Eg, int numeg,
+const int *inEdgesV, const int *inEdgesR, const int *outEdgesV, const int *outEdgesR,
+const int *nodeFeature, const int *edgeFeature,
+// motif
+const MotifEdgeInfoV1 *minfo, int numem,
+
+// runtime mem
+// @@@{enableIf $tailExpansion expandTemplate tailExpan/argList/Impl.snp}
+
+// @@@{enableIf $enumerate showText int *list_d,}
+// @@@{enableIf $enumerate showText const int *Euid_d,}
+
+unsigned long long *gcount 

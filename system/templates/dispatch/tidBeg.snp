@@ -1,0 +1,2 @@
+// @@@{expandTemplate warpCentric/tidBeg.snp}
+  tid += laneid;

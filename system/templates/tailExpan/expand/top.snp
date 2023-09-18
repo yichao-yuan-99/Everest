@@ -1,0 +1,45 @@
+__global__ static void MotifMatching_Expand(
+  int work,
+  // graph
+  const TemporalEdge *Eg, int numeg,
+  const int *inEdgesV, const int *inEdgesR,
+  const int *outEdgesV, const int *outEdgesR,
+  const int *nodeFeature, const int *edgeFeature,
+
+  // motif
+  const MotifEdgeInfoV1 *minfo, int numem,
+
+  // runtime
+  int *yeild,
+  int *source,
+  TContext *offload,
+  int *offtop,
+  int *offtopn,
+  int *offload_width,
+
+  int *chunk_offset,
+
+  // @@@{enableIf $enumerate showText int *list_d,}
+  // @@@{enableIf $enumerate showText const int *Euid_d,}
+
+  unsigned long long *gcount
+) {
+  auto laneid = threadIdx.x % 32;
+
+  // @@@{expandTemplate tailExpan/common/firstTid.snp}
+
+  // @@@{expandTemplate common/declareVarForExec.snp}
+
+  // @@@{expandTemplate warpCentric/tidBeg.snp}
+    tid = (tid / 32) + chunk_offset[laneid];
+
+    // @@@{expandTemplate tailExpan/expand/loadDump.snp}
+
+    // @@@{expandTemplate common/explorationLoop.snp}
+
+  // @@@{expandTemplate warpCentric/tidEnd.snp}
+
+  // @@@{enableIf not $enumerate expandTemplate common/warpReduceOutput.snp}
+
+  // @@@{expandTemplate tailExpan/expand/ending.snp}
+} 
