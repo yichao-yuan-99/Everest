@@ -8,8 +8,8 @@ If you find this repo useful, please cite the following paper:
                Wynn Kaza and
                Nishil Talati 
                },
-  title     = {Everest: GPU-Accelerated System For Mining Temporal Motifs},
-  booktitle = {{Under Review at VLDB 2024}},
+  title     = {{Everest: GPU-Accelerated System For Mining Temporal Motifs}},
+  booktitle = {{50th International Conference on Very Large Databases (VLDB 2024)}},
   pages     = {},
   publisher = {ACM},
   year      = {2024}
@@ -36,6 +36,7 @@ To get profiling results, it also requires `nsight compute` installed.
 Use `enivronment.yml` if you are facing difficult to make a compatible environemnt
 
 Install the above using conda env create -f environment.yml
+
 ​
 Post installation:
 
@@ -69,7 +70,7 @@ Please follow the README in `inputs` directory
 
 # Program Structure
 
-TheName uses C++/CUDA for data loading, preprocessing, shared library management and performing execution.
+Everest uses C++/CUDA for data loading, preprocessing, shared library management and performing execution.
 These components are exposed to Python via pybind11.
 The overall system uses Python to manage the query processing flow, generate optimized libraries based on queries, and perform other miscellaneous jobs.
 
@@ -241,7 +242,7 @@ options:
 ```
 An example query is `system/queries/multiGPU/ETH-M7-4.yaml`
 
-## turn on/off load balancing features
+## Turn on/off load balancing features
 Mechanisms that perform load balancing can be turned off.
 The following turns off intra-warp work stealing.
 ```
