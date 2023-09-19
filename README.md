@@ -1,4 +1,7 @@
+Copyright ©2023; The Regents of the University of Michigan
 # Overview
+Everest is a system that mines temporal motifs using GPU.
+
 If you find this repo useful, please cite the following paper:
 ```
 @inproceedings{yuan2023everest,

@@ -1,0 +1,8 @@
+This software uses the range-v3 library (Boost Software License - Version 1.0 - August 17th, 2003)
+https://github.com/ericniebler/range-v3/blob/master/LICENSE.txt
+
+This software uses the fmt library
+https://github.com/fmtlib/fmt/blob/master/LICENSE
+
+This sofware uses the pybind11 library
+https://github.com/pybind/pybind11/blob/master/LICENSE
